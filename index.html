@@ -4,16 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Web Note</title>
-  <link rel="Icon" href="icon.png"/>
+  <title>Web Notes</title>
+  <link rel="Icon" href="icon.png" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 
 <body style="background-color:  #69DEE9">
-  
-
-
-  
   <!--Navbar-->
   <div class="fixed-top">
     <div class="collapse" id="navbarToggleExternalContent">
@@ -36,7 +32,11 @@
     <h3 style="margin-top:60px;text-align: center;font-family:monospace;color:  #8043E6;text-decoration: underline dashed">Greetings!</h3>
     <div class="card" style="border: 2px solid grey;border-radius:20px;">
       <div class="card-body" style="border: 2px solid grey;border-radius:20px;background-color:#6DDF52">
-        <h5 class="card-title" style="color:#000000">Add a note</h5>
+        <div class="form-group">
+          <h5 class="card-title" style="color:#000000">Add Title</h5>
+          <input type="title" class="form-control" id="addTitle" placeholder="Your Note Title">
+        </div>
+        <h5 class="card-title" style="color:#000000;;margin-top:10px">Add a note</h5>
         <div class="form-group">
           <textarea class="form-control" id="textArea" rows="3" placeholder="Hey buddy! Write ✍️ your note inside me    (☞ ͡ ͡° ͜ ʖ ͡ ͡°)☞"></textarea>
         </div>
