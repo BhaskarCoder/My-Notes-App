@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body style="background-color:  #69DEE9">
+  <!--Navbar-->
+  <div class="fixed-top">
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="bg-dark p-4">
+        <h4 class="text-white h4" style="font-family:Courier New;font-weight: bolder;font-size:x-large">Magic Notes</h4>
+        <form class="form-inline my-2 my-lg-0">
+          <input id="searchTxt" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn">Search</button>
+        </form>
+      </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+  </div>
+  <!--Textarea-->
+  <div class="container my-3">
+    <h3 style="margin-top:60px;text-align: center;font-family:monospace;color:  #8043E6;text-decoration: underline dashed">Greetings!</h3>
+    <div class="card" style="border: 2px solid grey;border-radius:20px;">
+      <div class="card-body" style="border: 2px solid grey;border-radius:20px;background-color:#6DDF52">
+        <h5 class="card-title" style="color:#000000">Add a note</h5>
+        <div class="form-group">
+          <textarea class="form-control" id="textArea" rows="3" placeholder="Hey buddy! Write ✍️ your note inside me    (☞ ͡ ͡° ͜ ʖ ͡ ͡°)☞"></textarea>
+        </div>
+        <button class="btn btn-primary" id="addBtn">Add Note</button>
+      </div>
+    </div>
+    <hr />
+    <!--Note Cards-->
+    <h3 class="writtenNote" style="margin-left: 10px;font-family:cursive;text-decoration: underline dotted;color: #AF5F2F;">Your Notes</h3>
+    <hr />
+    <div id="noteCard" class="row container-fluid"></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+<script src="NoteApp.js"></script>
+
+</html>
