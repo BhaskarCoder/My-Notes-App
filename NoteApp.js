@@ -1,4 +1,5 @@
     let addButton = document.getElementById('addBtn');
+    alert("Developed by Bhaskar Anand");
     showNotes();
     addButton.addEventListener('click', event => {
       let textArea = document.getElementById('textArea');
