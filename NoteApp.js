@@ -1,8 +1,8 @@
     let addButton = document.getElementById('addBtn');
-    alert("Developed by Bhaskar Anand");
     showNotes();
     addButton.addEventListener('click', event => {
       let textArea = document.getElementById('textArea');
+      let titleArea = document.getElementById('addTitle');
 
       let storedNote = localStorage.getItem('Note');
 
@@ -11,11 +11,16 @@
       } else {
         noteList = JSON.parse(storedNote);
       }
-      noteList.push(textArea.value);
+      let myNoteObj = {
+        title: titleArea.value,
+        text: textArea.value
+      };
+      noteList.push(myNoteObj);
       localStorage.setItem('Note', JSON.stringify(noteList));
       console.log(storedNote);
       showNotes();
       textArea.value = "";
+      titleArea.value = "";
     })
 
     function showNotes() {
@@ -28,18 +33,18 @@
       }
       let html = "";
       noteList.forEach(function(element, index) {
-          html += `
+        html += `
         <div class="card" style="width: 23rem; margin:10px;">
           <div class="cardClass card-body" style="background-color:#DCD037">
-            <h5 id="${index}" onclick="addTitle(this.id)" class="card-title">Note ${index+1}- Untitled</h5>
-            <p id='para' class="card-text">${element}</p>
+            <h5 id="${index}" class="card-title">${index+1}. ${element.title}</h5>
+            <p id='para' class="card-text">${element.text}</p>
             <button id="${index}"onclick="deleteNote(this.id)" class="btn btn-danger" style='margin-right:10px;margin-top:5px'>Delete Note</button>
             <button id="${index}" onclick="editNote(this.id)" class="btn btn-dark" style='margin-top:5px'>Edit Note</button>
           </div>
         </div>`;
-        
-        }) 
-      
+
+      })
+
 
       let noteCard = document.getElementById('noteCard');
       if (noteList.length == 0) {
@@ -48,21 +53,21 @@
         noteCard.innerHTML = html;
       }
     }
-    
-            //start
-            noteList.forEach(elem=>{
-            let val = localStorage.getItem('noteItem');
-            let myPara = document.getElementById('para');
-            if (val == null) {
-              myPara.innerHTML = elem;
-            } else {
-              myPara.innerHTML = val;
-            }
-          }) 
-            //end
-    
-    
-    
+
+    //start
+    noteList.forEach(elem => {
+      let val = localStorage.getItem('noteItem');
+      let myPara = document.getElementById('para');
+      if (val == null) {
+        myPara.innerHTML = elem;
+      } else {
+        myPara.innerHTML = val;
+      }
+    })
+    //end
+
+
+
     function deleteNote(indexes) {
       console.log('Deleting')
       let storedNote = localStorage.getItem('Note');
@@ -97,33 +102,23 @@
         e.preventDefault();
       })
     })
-    
- 
+
+
     function editNote(index) {
 
       let Textarea = document.getElementsByClassName('textsArea');
       if (Textarea.length == 0) {
         let btnPara = document.getElementById(index);
-        let cardPara=btnPara.parentElement;
-        let paragraph=cardPara.children[1];
-        let Html =paragraph.innerText;
+        let cardPara = btnPara.parentElement;
+        let paragraph = cardPara.children[1];
+        let Html = paragraph.innerText;
         paragraph.innerHTML = `<textarea class="form-control" id="textsArea" style='background-color:#DCD037;border:2px solid #DCD037' rows="3">${Html}</textarea>`;
       }
-      
-      window.onload=function(){
-      Textarea.addEventListener('blur', function() {
-        paragraph.innerHTML = Textarea.value;
-        localStorage.setItem('noteItem', Textarea.value);
-      });
-    }
-  }
-    function addTitle(index){
-      let Tital=document.getElementById(index);
-      Tital.contentEditable=true;
-      let titalTxt=Tital.innerText;
-      
-      //Tital.innerHtml=head.value;
-    
+
+      window.onload = function() {
+        Textarea.addEventListener('blur', function() {
+          paragraph.innerHTML = Textarea.value;
+          localStorage.setItem('noteItem', Textarea.value);
+        });
       }
-      
-    
+    }
